@@ -6,7 +6,7 @@ Sistema de gestión para restaurantes desarrollado en equipo.
 - [ ] Sistema de reservas
 - [ ] Cálculo de estadísticas e ingresos
 ## 👥 Equipo
-- *Maintainer:* [Nombre del Maintainer]
+- *Maintainer:* Paula Gabriela Losada
 - *Developers:*
  - [Nombre Developer 1]
  - [Nombre Developer 2]
