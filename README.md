@@ -8,10 +8,10 @@ Sistema de gestión para restaurantes desarrollado en equipo.
 ## 👥 Equipo
 - *Maintainer:* Paula Gabriela Losada
 - *Developers:*
- - [Nombre Developer 1]
- - [Nombre Developer 2]
- - [Nombre Developer 3]
- - [Nombre Developer 4]
+ - [Edwin Esteban Barreto Gaitán Developer 1]
+ - [Eliana Isabela Pardo Montenegro Developer 2]
+ - [David Santiago Sotelo Rátiva Developer 3]
+ - [Tomás David Ocando Sáenz Developer 4]
 ## 🔄 Workflow
 Usamos *GitHub Flow*:
 1. Crear branch para cada feature
