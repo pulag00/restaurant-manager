@@ -132,4 +132,34 @@ public class Restaurant {
         }
         return reservations.removeIf(res -> res.startsWith(customerName.trim()));
     }
+
+    /***
+    * Procesa una orden y actualiza los ingresos
+    * @param item Nombre del item ordenado
+    * @param price Precio de la orden
+    * @throws IllegalArgumentException si el precio no es válido o item vacío
+    */
+   public void processOrder(String item, double price) {
+    if (price <= 0) {
+        throw new IllegalArgumentException("El precio debe ser positivo");
+    }
+    if (item == null || item.trim().isEmpty()) {
+        throw new IllegalArgumentException("El item no puede estar vacío");
+    }
+    totalRevenue += price;
+    }
+    /**
+     * Obtiene el número aproximado de órdenes procesadas
+     * @return cantidad estimada de órdenes
+     */
+    public int getOrderCount() {
+        return (int) Math.round(totalRevenue / 10.0);
+    }
+
+    /**
+     * Resetea los ingresos totales (para testing o nuevo período)
+     */
+    public void resetRevenue() {
+        totalRevenue = 0.0;
+    }
 }
