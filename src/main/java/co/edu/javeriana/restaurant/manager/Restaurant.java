@@ -10,6 +10,7 @@ public class Restaurant {
     private String name;
     private List<String> menu;
     private double totalRevenue;
+    private List<String> reservations;
 
     /**
      * Constructor del restaurante
@@ -19,6 +20,7 @@ public class Restaurant {
         this.name = name;
         this.menu = new ArrayList<>();
         this.totalRevenue = 0.0;
+        this.reservations = new ArrayList<>(); // Modificacion para reservaciones
     }
     /**
      * Obtiene el nombre del restaurante
@@ -83,4 +85,51 @@ public class Restaurant {
         return menu.size();
     }
 
+    /**
+     * Crea una nueva reserva
+     * @param customerName Nombre del cliente
+     * @param partySize Tamaño del grupo
+     * @param dateTime Fecha y hora de la reserva
+     * @throws IllegalArgumentException si los datos no son válidos
+     */
+    public void makeReservation(String customerName, int partySize, String dateTime) {
+        if (customerName == null || customerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del cliente es requerido");
+        }
+        if (partySize <= 0) {
+            throw new IllegalArgumentException("El tamaño del grupo debe ser positivo");
+        }
+        if (dateTime == null || dateTime.trim().isEmpty()) {
+            throw new IllegalArgumentException("La fecha y hora son requeridas");
+        }
+
+        String reservation = String.format("%s - %d personas - %s",
+                customerName, partySize, dateTime);
+        reservations.add(reservation);
+    }
+    /**
+     * Obtiene todas las reservas
+     * @return lista de reservas
+     */
+    public List<String> getReservations() {
+        return new ArrayList<>(reservations);
+    }
+    /**
+     * Obtiene el número de reservas activas
+     * @return cantidad de reservas
+     */
+    public int getReservationCount() {
+        return reservations.size();
+    }
+    /**
+     * Cancela una reserva por nombre de cliente
+     * @param customerName Nombre del cliente
+     * @return true si se canceló, false si no existía
+     */
+    public boolean cancelReservation(String customerName) {
+        if (customerName == null || customerName.trim().isEmpty()) {
+            return false;
+        }
+        return reservations.removeIf(res -> res.startsWith(customerName.trim()));
+    }
 }
